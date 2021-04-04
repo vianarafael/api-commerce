@@ -1,7 +1,16 @@
-console.log('hello', __dirname, __filename);
+import express from 'express'
+import cors from 'cors'
+import routes from './routes'
 
-function () {
-  const a = 'a'
-  const b = 'b'
-  return a+b
-}
+const app = express()
+
+app.use(cors())
+app.use(express.json())
+app.use(routes)
+
+const port = 3333
+app.listen(port, () =>
+{
+  console.log(`Server Started on port ${port} 🚀🚀🚀`);
+})
+
